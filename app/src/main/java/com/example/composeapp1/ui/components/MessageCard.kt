@@ -45,11 +45,14 @@ class MessageCard {
             }
         }
     }
-}
 
-@Preview(showBackground = true, device = "id:pixel_6_pro")
-@Composable
-fun PreviewMessageCard() {
-    val messageCard = MessageCard()
-    messageCard.MessageCardComposable(DemoMessageFake.demoMessage)
+    /**
+     * Composable preview method that generates the preview in android studio.
+     */
+    @Preview(showBackground = true, device = "id:pixel_6_pro")
+    @Composable
+    fun PreviewMessageCard() {
+        val messageCard = MessageCard()
+        messageCard.MessageCardComposable(DemoMessageFake.demoMessage)
+    }
 }

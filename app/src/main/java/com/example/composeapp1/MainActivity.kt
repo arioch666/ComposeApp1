@@ -15,7 +15,7 @@ import com.example.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
     /**
-     * Lifecycle method, 
+     * Lifecycle method, method that sets up activity content.
      */
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,22 +46,3 @@ class MainActivity : ComponentActivity() {
         BuildDemoCard()
     }
 }
-
-
-
-
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//            text = "Hello $name!",
-//            modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true, device = "id:pixel_6_pro")
-//@Composable
-//fun GreetingPreview() {
-//    ComposeApp1Theme {
-//        Greeting("Android")
-//    }
-//}
