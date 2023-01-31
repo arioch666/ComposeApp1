@@ -14,29 +14,36 @@ import com.example.composeapp1.ui.components.MessageCard
 import com.example.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
-    // Lifecycle method
+    /**
+     * Lifecycle method, 
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            buildDemoCard()
+            BuildDemoCard()
         }
     }
 
-
+    /**
+     * Composable function that builds the demo card for the activity.
+     */
     @Composable
-    private fun buildDemoCard() {
+    private fun BuildDemoCard() {
         ComposeApp1Theme {
             Surface(modifier = Modifier.fillMaxSize()) {
-                MessageCard().messageCardComposable(DemoMessageFake.demoMessage)
+                MessageCard().MessageCardComposable(DemoMessageFake.demoMessage)
             }
         }
     }
 
-
+    /**
+     * Composable Preview function. Generates the preview in android studio.
+     */
     @Preview
     @Composable
-    fun preview() {
-        buildDemoCard()
+    fun Preview() {
+        BuildDemoCard()
     }
 }
 
