@@ -40,9 +40,10 @@ class MessageCard {
                 .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelMedium)
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(message.message)
+                Text(message.message, style = MaterialTheme.typography.bodyMedium)
             }
         }
     }
