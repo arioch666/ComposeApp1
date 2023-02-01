@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -40,17 +41,25 @@ class MessageCard {
                 .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelMedium)
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(message.message)
+                Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
+                    Text(message.message,
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.bodyMedium)
+               }
             }
         }
     }
-}
 
-@Preview(showBackground = true, device = "id:pixel_6_pro")
-@Composable
-fun PreviewMessageCard() {
-    val messageCard = MessageCard()
-    messageCard.MessageCardComposable(DemoMessageFake.demoMessage)
+    /**
+     * Composable preview method that generates the preview in android studio.
+     */
+    @Preview(showBackground = true, device = "id:pixel_6_pro")
+    @Composable
+    fun PreviewMessageCard() {
+        val messageCard = MessageCard()
+        messageCard.MessageCardComposable(DemoMessageFake.demoMessage)
+    }
 }
