@@ -1,5 +1,6 @@
 package com.example.composeapp1.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -48,7 +49,13 @@ class MessageCard {
     }
 }
 
-@Preview(showBackground = true, device = "id:pixel_6_pro")
+/**
+ * Composable Preview function. Generates the preview in android studio.
+ */
+@Preview(name = "Light Mode", device = "id:pixel_6_pro")
+@Preview(name = "Dark Mode", showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    device = "id:pixel_6_pro")
 @Composable
 fun PreviewMessageCard() {
     val messageCard = MessageCard()

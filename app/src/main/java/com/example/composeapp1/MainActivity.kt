@@ -1,5 +1,6 @@
 package com.example.composeapp1
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -40,7 +41,10 @@ class MainActivity : ComponentActivity() {
     /**
      * Composable Preview function. Generates the preview in android studio.
      */
-    @Preview
+    @Preview(name = "Light Mode", device = "id:pixel_6_pro")
+    @Preview(name = "Dark Mode", showBackground = true,
+        uiMode = Configuration.UI_MODE_NIGHT_YES,
+        device = "id:pixel_6_pro")
     @Composable
     fun Preview() {
         BuildDemoCard()
