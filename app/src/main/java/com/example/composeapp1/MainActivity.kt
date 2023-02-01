@@ -1,5 +1,6 @@
 package com.example.composeapp1
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,7 +16,7 @@ import com.example.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
     /**
-     * Lifecycle method, 
+     * Lifecycle method, method that sets up activity content.
      */
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,28 +41,12 @@ class MainActivity : ComponentActivity() {
     /**
      * Composable Preview function. Generates the preview in android studio.
      */
-    @Preview
+    @Preview(name = "Light Mode", device = "id:pixel_6_pro")
+    @Preview(name = "Dark Mode", showBackground = true,
+        uiMode = Configuration.UI_MODE_NIGHT_YES,
+        device = "id:pixel_6_pro")
     @Composable
     fun Preview() {
         BuildDemoCard()
     }
 }
-
-
-
-
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//            text = "Hello $name!",
-//            modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true, device = "id:pixel_6_pro")
-//@Composable
-//fun GreetingPreview() {
-//    ComposeApp1Theme {
-//        Greeting("Android")
-//    }
-//}

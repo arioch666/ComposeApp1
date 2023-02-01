@@ -1,5 +1,6 @@
 package com.example.composeapp1.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -40,15 +42,25 @@ class MessageCard {
                 .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelMedium)
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(message.message)
+                Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
+                    Text(message.message,
+                        modifier = Modifier.padding(all = 4.dp),
+                        style = MaterialTheme.typography.bodyMedium)
+               }
             }
         }
     }
-}
 
-@Preview(showBackground = true, device = "id:pixel_6_pro")
+/**
+ * Composable Preview function. Generates the preview in android studio.
+ */
+@Preview(name = "Light Mode", device = "id:pixel_6_pro")
+@Preview(name = "Dark Mode", showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    device = "id:pixel_6_pro")
 @Composable
 fun PreviewMessageCard() {
     val messageCard = MessageCard()
