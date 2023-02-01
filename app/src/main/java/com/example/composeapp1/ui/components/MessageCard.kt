@@ -36,12 +36,14 @@ class MessageCard {
         Row(modifier = Modifier.padding(all = 8.dp)) {
             Image(painter = painterResource(id = R.drawable.test_image),
             contentDescription = "Contact profile Image",
-            modifier = Modifier.size(40.dp).clip(CircleShape).border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
+            modifier = Modifier.size(40.dp).clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                Text(message.author)
+                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelMedium)
                 Spacer(modifier = Modifier.height(4.dp))
-                Text(message.message)
+                Text(message.message, style = MaterialTheme.typography.bodyMedium)
             }
         }
     }
