@@ -1,6 +1,6 @@
 package com.example.composeapp1.data
 
-data class DemoMessage(
+data class Message(
     val author:String,
     val message: String) {
 }

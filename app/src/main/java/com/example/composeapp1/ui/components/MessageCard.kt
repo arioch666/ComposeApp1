@@ -21,8 +21,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composeapp1.R
-import com.example.composeapp1.data.DemoMessage
-import com.example.composeapp1.data.fake.DemoMessageFake
+import com.example.composeapp1.data.Message
+import com.example.composeapp1.data.fake.MessageFake
 
 class MessageCard {
     /**
@@ -34,35 +34,44 @@ class MessageCard {
      * internet.
      */
     @Composable
-    fun MessageCardComposable(message: DemoMessage) {
+    fun MessageCardComposable(message: Message) {
         Row(modifier = Modifier.padding(all = 8.dp)) {
-            Image(painter = painterResource(id = R.drawable.test_image),
-            contentDescription = "Contact profile Image",
-            modifier = Modifier.size(40.dp).clip(CircleShape)
-                .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape))
+            Image(
+                painter = painterResource(id = R.drawable.test_image),
+                contentDescription = "Contact profile Image",
+                modifier = Modifier.size(40.dp).clip(CircleShape)
+                    .border(1.5.dp, MaterialTheme.colorScheme.secondary, CircleShape)
+            )
             Spacer(modifier = Modifier.width(8.dp))
             Column {
-                Text(text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    style = MaterialTheme.typography.labelMedium)
+                Text(
+                    text = message.author, color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.labelMedium
+                )
                 Spacer(modifier = Modifier.height(4.dp))
                 Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
-                    Text(message.message,
+                    Text(
+                        message.message,
                         modifier = Modifier.padding(all = 4.dp),
-                        style = MaterialTheme.typography.bodyMedium)
-               }
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
             }
         }
     }
 
-/**
- * Composable Preview function. Generates the preview in android studio.
- */
-@Preview(name = "Light Mode", device = "id:pixel_6_pro")
-@Preview(name = "Dark Mode", showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES,
-    device = "id:pixel_6_pro")
-@Composable
-fun PreviewMessageCard() {
-    val messageCard = MessageCard()
-    messageCard.MessageCardComposable(DemoMessageFake.demoMessage)
+    /**
+     * Composable Preview function. Generates the preview in android studio.
+     */
+    @Preview(name = "Light Mode", device = "id:pixel_6_pro")
+    @Preview(
+        name = "Dark Mode", showBackground = true,
+        uiMode = Configuration.UI_MODE_NIGHT_YES,
+        device = "id:pixel_6_pro"
+    )
+    @Composable
+    fun PreviewMessageCard() {
+        val messageCard = MessageCard()
+        messageCard.MessageCardComposable(MessageFake.message)
+    }
 }
