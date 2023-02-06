@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
     /**
      * Lifecycle method, method that sets up activity content.
      */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

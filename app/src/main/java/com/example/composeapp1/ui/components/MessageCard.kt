@@ -60,6 +60,7 @@ class MessageCard {
         }
     }
 
+
     /**
      * Composable Preview function. Generates the preview in android studio.
      */
