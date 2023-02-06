@@ -11,14 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.composeapp1.data.fake.DemoMessageFake
-import com.example.composeapp1.ui.components.MessageCard
+import com.example.composeapp1.ui.components.MessageCardComposable
 import com.example.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
     /**
      * Lifecycle method, method that sets up activity content.
      */
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -33,7 +32,7 @@ class MainActivity : ComponentActivity() {
     private fun BuildDemoCard() {
         ComposeApp1Theme {
             Surface(modifier = Modifier.fillMaxSize()) {
-                MessageCard().MessageCardComposable(DemoMessageFake.demoMessage)
+                MessageCardComposable(DemoMessageFake.demoMessage)
             }
         }
     }
