@@ -10,8 +10,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.composeapp1.data.Message
 import com.example.composeapp1.data.fake.MessageFake
-import com.example.composeapp1.ui.components.MessageCard
+import com.example.composeapp1.data.fake.SampleMessage
+import com.example.composeapp1.ui.components.MessageCardComposable
+import com.example.composeapp1.ui.components.MessageCardList
 import com.example.composeapp1.ui.theme.ComposeApp1Theme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BuildDemoCard()
+            BuildConversationDemo(SampleMessage.conversationSample)
         }
     }
 
@@ -29,10 +32,10 @@ class MainActivity : ComponentActivity() {
      * Composable function that builds the demo card for the activity.
      */
     @Composable
-    private fun BuildDemoCard() {
+    private fun BuildConversationDemo(messages: List<Message>) {
         ComposeApp1Theme {
             Surface(modifier = Modifier.fillMaxSize()) {
-                MessageCard().MessageCardComposable(MessageFake.message)
+                MessageCardList(messages = messages)
             }
         }
     }
@@ -46,6 +49,6 @@ class MainActivity : ComponentActivity() {
         device = "id:pixel_6_pro")
     @Composable
     fun Preview() {
-        BuildDemoCard()
+        BuildConversationDemo(SampleMessage.conversationSample)
     }
 }
